@@ -5,20 +5,44 @@ export default{
     title: 'Components/Text',
     component: Text,
     args: {
-        children: 'Lorem ipsum.',
+        children: 'Text with P tag.',
     },   
+    argTypes:{
+        size:{
+            options: ['sm', 'md', 'lg'],
+            control: {
+                type: 'inline-radio'
+            }
+        }
+    }
 } as Meta<TextProps>
 
-export const Default: StoryObj = {}
+export const Default: StoryObj<TextProps> = {}
 
-export const Small: StoryObj = {
+export const Small: StoryObj<TextProps> = {
     args: {
         size: 'sm'
     }
 }
 
-export const Large : StoryObj = {
+export const Large : StoryObj<TextProps> = {
     args: {
         size: 'lg'
+    }
+}
+
+export const CustomComponent : StoryObj<TextProps> = {
+    args: {
+        asChild: true,
+        children: (
+            <p>Testando</p>
+        )
+    },
+    argTypes:{
+        children:{
+            table:{
+                disable: true,
+            } 
+        }
     }
 }
