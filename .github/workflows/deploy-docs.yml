@@ -2,7 +2,7 @@ name: Deploy Storybook
 
 on:
   push:
-    banches:
+    branches:
       - main
 
 jobs:
@@ -26,5 +26,5 @@ jobs:
 
       - name: Deploy Storybook
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
-        env: 
+        env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
